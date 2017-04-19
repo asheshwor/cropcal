@@ -4,7 +4,7 @@ require(shiny)
 require(shinydashboard)
 require(dplyr)
 require(ggplot2)
-require(viridis)
+# require(viridis)
 #read data
 crop.file <- "data/All_data_with_climate.csv"
 crop.data <- read.csv(crop.file,
@@ -19,13 +19,14 @@ base::names(crop.data) <- c("Location", "Level", "Nation", "State", "Country",
                             "HarvestStart", "HarvestStartDate", "HarvestEnd",
                             "HarvestEndDate")
 #plot settings
-Labels <- c(month.abb, "")
-Breaks <- cumsum(c(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31))
+labels <- c(month.abb, "")
+breaks <- cumsum(c(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31))
 ## ui.R ##
 sidebar <- dashboardSidebar(
   sidebarMenu(
-    menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
-    menuItem("About", icon = icon("th"), tabName = "about")
+    menuItem("Cropping Calendar", tabName = "dashboard", icon = icon("calendar")),
+    menuItem("Table", icon = icon("table"), tabName = "table"),
+    menuItem("About", icon = icon("info-circle"), tabName = "about")
   )
 )
 
@@ -43,13 +44,15 @@ body <- dashboardBody(
             # h3("Select sub location"),
             conditionalPanel(condition = "output.submenu",
                               uiOutput("subLocation")),
-            h2("Cropping calendar"),
-            plotOutput("crop.graph", height=400),
-            h2("Table"),
-            dataTableOutput("crop.table")
+            p("Cropping calendar"),
+            plotOutput("crop.graph", height=400)
+            # p("Table"),
+            # dataTableOutput("crop.table")
             # p("Cropping calendar will appear here. Eventually.")
     ),
-    
+    tabItem(tabName = "table",
+            p("Table"),
+            dataTableOutput("crop.table")),
     tabItem(tabName = "about",
             includeHTML("about.html")
             
@@ -57,15 +60,8 @@ body <- dashboardBody(
   )
 )
 
-# Put them together into a dashboardPage
-dashboardPage(
-  dashboardHeader(title = "Simple tabs"),
-  sidebar,
-  body
-)
-
 shinyApp(
-  ui = dashboardPage(
+  ui = dashboardPage(skin="red",
     dashboardHeader(title = "Cropping Calendar"),
     dashboardSidebar(sidebar),
     body
@@ -142,7 +138,7 @@ shinyApp(
         theme_minimal() +
         theme(axis.text.x = element_text(hjust = -.5)) +
         coord_flip() + theme(legend.position="bottom") +
-        scale_y_continuous("", breaks = Breaks, labels = Labels, limits = c(0, 365))
+        scale_y_continuous("", breaks = breaks, labels = labels, limits = c(0, 365))
     }
     )
     sublocation <- reactive({ #reactive

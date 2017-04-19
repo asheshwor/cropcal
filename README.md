@@ -19,16 +19,15 @@ shiny::runGitHub('asheshwor/cropcal')
 
 ## Screenshots
 
-![app screenshot 1](img/1.peru.png)
+![app screenshot 1](img/eg_au.png)
 <small>Screenshot of app</small>
 
-![app screenshot 2](img/2.aus.png)
+![app screenshot 2](img/eg_elsalvador.png)
 <small>Screenshot of app</small>
 
 ## Data source
 
-Data
-Note: Cropping calendar data from https://nelson.wisc.edu/sage/data-and-models/crop-calendar-dataset/index.php.
+Cropping calendar data from [Sacks et al. 2010](https://nelson.wisc.edu/sage/data-and-models/crop-calendar-dataset/index.php).
 
 ## To-do
 
@@ -40,3 +39,6 @@ Note: Cropping calendar data from https://nelson.wisc.edu/sage/data-and-models/c
 Code distributed under the terms of the [MIT license] (https://github.com/asheshwor/cropcal/blob/master/LICENSE)
 
 See individual licenses for external data/tools used if any.
+
+## References
+* Sacks, W.J., D. Deryng, J.A. Foley, and N. Ramankutty (2010). Crop planting dates: an analysis of global patterns. Global Ecology and Biogeography 19, 607-620. DOI: 10.1111/j.1466-8238.2010.00551.x
