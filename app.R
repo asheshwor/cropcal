@@ -45,7 +45,7 @@ body <- dashboardBody(
             conditionalPanel(condition = "output.submenu",
                               uiOutput("subLocation")),
             p("Cropping calendar"),
-            plotOutput("crop.graph", height=400)
+            plotOutput("crop.graph", height="auto")
             # p("Table"),
             # dataTableOutput("crop.table")
             # p("Cropping calendar will appear here. Eventually.")
@@ -66,7 +66,7 @@ shinyApp(
     dashboardSidebar(sidebar),
     body
   ),
-  server = function(input, output) {
+  server = function(input, output, session) {
     #code
     get.crop <- function(x) {
       xdf <- crop.data %>%
@@ -157,8 +157,13 @@ shinyApp(
       x <- sublocation()
       if(x>1) TRUE else FALSE
     })
+    #dynamic plot height
+    graph.height <- reactive({50 + 40*nrow(get.crop.final())})
     outputOptions(output, "submenu", suspendWhenHidden = FALSE)
-    output$crop.graph <- renderPlot(get.calendar())
+    output$crop.graph <- renderPlot(get.calendar(),
+                                    height = graph.height)
+    # output$crop.graph <- renderPlot(get.calendar(), height = function() {
+    #   session$clientData$output_crop.graph_width})
     output$crop.table <- renderDataTable(get.crop.final()[ , c(8,9,11,15,17)])
   }
 )
