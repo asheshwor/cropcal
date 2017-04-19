@@ -1,4 +1,4 @@
-## Exploring South Australia's Road Accidents Data
+## Cropping calendar visualisation
 
 An app to visualisie cropping calendars for selected regions. Once you make a selection of the region using drop-down menus, the calendar will be displayed.
 
