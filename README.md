@@ -4,7 +4,9 @@ An app to visualisie cropping calendars for selected regions. Once you make a se
 
 ## Demo
 
-Live demo is unavailable, but you can run the app from RStudio using the following code:
+Live demo at [https://asheshwor.shinyapps.io/cropcal/](https://asheshwor.shinyapps.io/cropcal/)
+
+This app can also be run from RStudio using the following code:
 
 ```R
 ## Install missing packages
@@ -27,7 +29,7 @@ shiny::runGitHub('asheshwor/cropcal')
 
 ## Data source
 
-Cropping calendar data from [Sacks et al. 2010](https://nelson.wisc.edu/sage/data-and-models/crop-calendar-dataset/index.php).
+Cropping calendar data from [Sacks et al. (2010)](https://nelson.wisc.edu/sage/data-and-models/crop-calendar-dataset/index.php).
 
 ## To-do
 

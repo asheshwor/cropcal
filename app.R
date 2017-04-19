@@ -35,7 +35,7 @@ body <- dashboardBody(
     tabItem(tabName = "dashboard",
             #h2("Filter data"),
             selectInput("nation",
-                        label = "Select location",
+                        label = "Select country",
                         choices=c((setNames(crop.data$Nation,
                                              paste(crop.data$Location,
                                                    crop.data$Nation))
@@ -150,7 +150,7 @@ shinyApp(
       data <- get.crop()
       mymenu <- unique(data$Location)
       selectInput('sub.location',
-                  'Select Sub-location',
+                  'Select location',
                   mymenu)
     })
     output$submenu <- reactive({ #reactive
