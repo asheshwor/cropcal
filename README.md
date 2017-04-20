@@ -1,6 +1,6 @@
 ## Cropping calendar visualization
 
-An app to visualizie key dates for various crops using the Cropping Calendar dataset. Once you make a selection of the region using drop-down menus, the calendar will be displayed.
+An app to visualize key dates for various crops using the Cropping Calendar dataset. Once you make a selection of the region using drop-down menus, the calendar will be displayed.
 
 ## Demo
 
@@ -38,7 +38,7 @@ Cropping calendar data from [Sacks et al. (2010)](https://nelson.wisc.edu/sage/d
 
 ## License:
 
-Code distributed under the terms of the [MIT license](https://github.com/asheshwor/cropcal/blob/master/LICENSE)
+Code distributed under the terms of the [MIT license](https://github.com/asheshwor/cropcal/blob/master/LICENSE).
 
 See individual licenses for external data/tools used if any.
 
