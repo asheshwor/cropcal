@@ -24,7 +24,7 @@ shiny::runGitHub('asheshwor/cropcal')
 ![app screenshot 1](img/eg_au.png)
 <small>Screenshot of app</small>
 
-![app screenshot 2](img/eg_elsalvador.png)
+![app screenshot 2](img/eg_fr.png)
 <small>Screenshot of app</small>
 
 ## Data source
