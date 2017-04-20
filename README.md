@@ -1,6 +1,6 @@
-## Cropping calendar visualisation
+## Cropping calendar visualization
 
-An app to visualisie cropping calendars for selected regions. Once you make a selection of the region using drop-down menus, the calendar will be displayed.
+An app to vizualisie key dates for various crops using the Cropping Calendar dataset. Once you make a selection of the region using drop-down menus, the calendar will be displayed.
 
 ## Demo
 
@@ -33,7 +33,7 @@ Cropping calendar data from [Sacks et al. (2010)](https://nelson.wisc.edu/sage/d
 
 ## To-do
 
-* fix overlaps with some data
+* fix overlaps with some cases
 * add associated climate data
 
 ## License:

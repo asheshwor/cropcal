@@ -1,4 +1,4 @@
-#Shiny app to visualise cropping calendar using open data
+#Shiny app to visualize cropping calendar using open data
 # github: https://github.com/asheshwor/cropcal
 require(shiny)
 require(shinydashboard)
@@ -24,7 +24,7 @@ breaks <- cumsum(c(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31))
 ## ui.R ##
 sidebar <- dashboardSidebar(
   sidebarMenu(
-    menuItem("Cropping Calendar", tabName = "dashboard", icon = icon("calendar")),
+    menuItem("Cropping Calendar", tabName = "dashboard", icon = icon("leaf")),
     menuItem("Table", icon = icon("table"), tabName = "table"),
     menuItem("About", icon = icon("info-circle"), tabName = "about")
   )
@@ -91,6 +91,7 @@ shinyApp(
         mutate(a = as.numeric(Start), b = as.numeric(End), c = as.numeric(End),
                d = as.numeric(HarvestStart), e = as.numeric(HarvestStart),
                f = as.numeric(HarvestEnd))
+      #the following code could be more tidyversy :-|
       #plant with new year
       crop.subset.plant <- crop.subset %>%
         mutate(ab = b-a, cd=d-c, ef=f-e, group = row.names(crop.subset),
@@ -162,8 +163,6 @@ shinyApp(
     outputOptions(output, "submenu", suspendWhenHidden = FALSE)
     output$crop.graph <- renderPlot(get.calendar(),
                                     height = graph.height)
-    # output$crop.graph <- renderPlot(get.calendar(), height = function() {
-    #   session$clientData$output_crop.graph_width})
     output$crop.table <- renderDataTable(get.crop.final()[ , c(8,9,11,15,17)])
   }
 )
