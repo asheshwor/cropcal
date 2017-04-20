@@ -38,7 +38,7 @@ Cropping calendar data from [Sacks et al. (2010)](https://nelson.wisc.edu/sage/d
 
 ## License:
 
-Code distributed under the terms of the [MIT license] (https://github.com/asheshwor/cropcal/blob/master/LICENSE)
+Code distributed under the terms of the [MIT license](https://github.com/asheshwor/cropcal/blob/master/LICENSE)
 
 See individual licenses for external data/tools used if any.
 
