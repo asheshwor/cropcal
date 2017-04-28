@@ -21,6 +21,12 @@ base::names(crop.data) <- c("Location", "Level", "Nation", "State", "Country",
 #plot settings
 labels <- c(month.abb, "")
 breaks <- cumsum(c(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31))
+#first level menu
+locations <- crop.data %>%
+  select(Location, Level, Nation) %>%
+  filter(Level == "N") %>%
+  distinct() %>%
+  arrange(Location)
 ## ui.R ##
 sidebar <- dashboardSidebar(
   sidebarMenu(
@@ -36,10 +42,10 @@ body <- dashboardBody(
             #h2("Filter data"),
             selectInput("nation",
                         label = "Select country",
-                        choices=c((setNames(crop.data$Nation,
-                                             paste(crop.data$Location,
-                                                   crop.data$Nation))
-                                  )),
+                        # choices=c(setNames(crop.data$Nation,
+                        #                      crop.data$Location)),
+                        choices=c(setNames(locations$Nation,
+                                           locations$Location)),
                         selected=""),
             # h3("Select sub location"),
             conditionalPanel(condition = "output.submenu",
