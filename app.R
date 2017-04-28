@@ -7,6 +7,7 @@ require(ggplot2)
 # require(viridis)
 #read data
 crop.file <- "data/All_data_with_climate.csv"
+# crop.file <- paste0("C:/Users/Lenovo/github/cropcal/", crop.file)
 crop.data <- read.csv(crop.file,
                       colClasses = c(rep("character", 96)))
 #isolate columns
@@ -25,6 +26,10 @@ breaks <- cumsum(c(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31))
 locations <- crop.data %>%
   select(Location, Level, Nation) %>%
   filter(Level == "N") %>%
+  #fix for the USA
+  add_row(Location = "United States of America",
+          Level = "N",
+          Nation = "5") %>%
   distinct() %>%
   arrange(Location)
 ## ui.R ##
