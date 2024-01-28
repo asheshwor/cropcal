@@ -1,13 +1,17 @@
 #Shiny app to visualize cropping calendar using open data
+# see details on the following github
 # github: https://github.com/asheshwor/cropcal
+# new url: https://app.shrestha.au/cropcal
+# CHANGELOG
+# 20240128 code changed to update obsolete options
+
 require(shiny)
 require(shinydashboard)
 require(dplyr)
 require(ggplot2)
-# require(viridis)
+
 #read data
 crop.file <- "data/All_data_with_climate.csv"
-# crop.file <- paste0("C:/Users/Lenovo/github/cropcal/", crop.file)
 crop.data <- read.csv(crop.file,
                       colClasses = c(rep("character", 96)))
 #isolate columns
@@ -136,21 +140,22 @@ shinyApp(
       #plot
       ggplot() +
         geom_linerange(data=crop.table.maturity, aes(x=CropName, ymin=c, ymax=d,
-                                                     color=stage, group=group), size=5, alpha=0.6) +
+                                                     color=stage, group=group), linewidth=5, alpha=0.6) +
         geom_linerange(data=crop.table.plant, aes(x=CropName, ymin=a, ymax=b,
-                                                  color=stage, group=group), size=7, alpha=0.6) +
+                                                  color=stage, group=group), linewidth=7, alpha=0.6) +
         geom_linerange(data=crop.table.harvest, aes(x=CropName, ymin=e, ymax=f,
-                                                    color=stage, group=group), size=7, alpha=0.8) +
+                                                    color=stage, group=group), linewidth=7, alpha=0.8) +
         ylim(c(0, 365)) +
-        coord_flip() +
+        # coord_flip() +
         ylab("") + xlab("") +
         scale_colour_manual(name="",
                             values = c("aquamarine4", "darkolivegreen3", "cornflowerblue"),
                             labels=c("Harvest", "Growth", "Planting")) +
         theme_minimal() +
         theme(axis.text.x = element_text(hjust = -.5)) +
-        coord_flip() + theme(legend.position="bottom") +
-        scale_y_continuous("", breaks = breaks, labels = labels, limits = c(0, 365))
+        coord_flip() +
+        theme(legend.position="bottom") #+
+        # scale_y_continuous("", breaks = breaks, labels = labels, limits = c(0, 365))
     }
     )
     sublocation <- reactive({ #reactive
