@@ -1,0 +1,7 @@
+Possible data:
+https://data.apps.fao.org/catalog/dataset/crop-calendar-by-country-crop-and-activity
+
+Crop Calendar (by Country, Crop and Activity)
+The national summary Crop Calendar provides information on planting, sowing and harvesting periods of locally adapted crops. It also provides information on the sowing rates of seed and planting material and the main agricultural practices.
+
+More information and data can be found on the Crop calendar platform.
